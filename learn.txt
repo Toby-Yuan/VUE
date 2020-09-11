@@ -1,0 +1,239 @@
+1. setup
+
+1.1 CDN(開發版本)
+```
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+```
+
+1.2 CDN(生產版本)
+```
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+```
+
+
+2. 基本教學
+
+2.1 呼叫預設資料內容
+
+html
+```
+<div id="app">
+    {{ message }}
+</div>
+```
+
+js
+```
+var app = new Vue({
+    el: '#app',
+    data: {
+        message: 'Hello Vue!'
+    }
+})
+```
+
+2.2 用VUE影響標籤屬性, 可以簡寫成 :title
+
+html
+```
+<div id="app-2">
+    <span v-bind:title="message">
+        鼠标悬停几秒钟查看此处动态绑定的提示信息！
+    </span>
+</div>
+```
+
+js
+```
+var app2 = new Vue({
+    el: '#app-2',
+    data: {
+        message: '页面加载于 ' + new Date().toLocaleString()
+    }
+})
+```
+
+2.3 條件式, 由seen(資料名稱)的布林值控制顯示
+
+html
+```
+<div id="app-3">
+    <p v-if="seen">现在你看到我了</p>
+</div>
+```
+
+js
+```
+var app3 = new Vue({
+    el: '#app-3',
+    data: {
+        seen: true // false
+    }
+})
+```
+
+2.4 迴圈
+
+html
+```
+<div id="app-4">
+    <ol>
+        <li v-for="todo in todos">
+            {{ todo.text }}
+        </li>
+    </ol>
+</div>
+```
+
+js
+```
+var app4 = new Vue({
+    el: '#app-4',
+    data: {
+        todos: [
+            { text: '学习 JavaScript' },
+            { text: '学习 Vue' },
+            { text: '整个牛项目' }
+        ]
+    }
+})
+```
+
+2.5 DOM事件處理, 可以簡寫成 @click
+
+html
+```
+<div id="app-5">
+    <p>{{ message }}</p>
+    <button v-on:click="reverseMessage">反转消息</button>
+</div>
+```
+
+js
+```
+var app5 = new Vue({
+    el: '#app-5',
+    data: {
+        message: 'Hello Vue.js!'
+    },
+    methods: {
+        reverseMessage: function () {
+            this.message = this.message.split('').reverse().join('')
+        }
+    }
+})
+```
+
+2.6 顯示端(html)影響資料顯示
+
+html
+```
+<div id="app-6">
+    <p>{{ message }}</p>
+    <input v-model="message">
+</div>
+```
+
+js
+```
+var app6 = new Vue({
+    el: '#app-6',
+    data: {
+        message: 'Hello Vue!'
+    }
+})
+```
+
+2.7 組建化應用
+
+2.7.1 定義新標籤(組建)-->todo-item
+
+html
+```
+<ol>
+    <todo-item></todo-item>
+</ol>
+```
+
+js
+```
+Vue.component('todo-item', {
+    template: '<li>这是个待办项</li>'
+})
+
+var app7 = new Vue(...)
+```
+
+2.7.2 定義新標籤的屬性-->todo
+
+js
+```
+Vue.component('todo-item', {
+    props: ['todo'],
+    template: '<li>{{ todo.text }}</li>'
+})
+```
+
+
+2.7.3 利用 v-bind 新增新屬性
+
+html
+```
+<div id="app-7">
+  <ol>
+    <todo-item
+      v-for="item in groceryList"
+      v-bind:todo="item"
+      v-bind:key="item.id"
+    ></todo-item>
+  </ol>
+</div>
+```
+
+2.7.4 輸入需要循環顯示的資料
+
+js
+```
+Vue.component('todo-item', {
+  props: ['todo'],
+  template: '<li>{{ todo.text }}</li>'
+})
+
+var app7 = new Vue({
+    el: '#app-7',
+    data: {
+        groceryList: [
+            { id: 0, text: '蔬菜' },
+            { id: 1, text: '奶酪' },
+            { id: 2, text: '随便其它什么人吃的东西' }
+        ]
+    }
+})
+```
+
+2.7.5 結果會等於以下
+
+html
+```
+<div id="app-7">
+  <ul>
+    <li v-for="todo in groceryList">
+        {{ todo.text }}
+    </li>
+  </ul>
+</div>
+```
+
+js
+```
+var app7 = new Vue({
+    el: '#app-7',
+    data: {
+        groceryList: [
+            { text: '蔬菜' },
+            { text: '奶酪' },
+            { text: '随便其它什么人吃的东西' }
+        ]
+    }
+})
+```
