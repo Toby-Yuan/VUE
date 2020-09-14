@@ -237,3 +237,28 @@ var app7 = new Vue({
     }
 })
 ```
+
+3. 生命週期(鉤子)
+
+3.1 vue可以在每個步驟中進行動作, 例如: 監聽, 編譯
+
+3.2 created: 在一個實例被創建後執行
+
+js
+```
+var app = new Vue({
+    el: '#app',
+    data: {
+        a: 'hello'
+    },
+    created: function(){
+        console.log('a is:' + this.a)
+    }
+})
+```
+
+3.3 不可以用箭頭函示, 因為箭頭函式沒有this的概念
+
+3.4 其他的例如: mounted(元素掛載, 有el), updated(DOM更新完成), destroyed(銷毀)
+
+3.5 也可以在前面加上before, 字首大寫, 不用加ed
