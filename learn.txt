@@ -354,3 +354,243 @@ var app3 = new Vue({
     }
 })
 ```
+
+
+5. 計算和偵聽器
+
+5.1 Vue可以通過cpmputed 來設定要計算的函示並且return 顯示
+
+html
+```
+<div id="app">
+    <p>原本的句子 {{ message }}</p>
+    <p>計算後句子 {{ reverseMessage }}</p>
+</div>
+```
+
+js
+```
+var app = new Vue({
+    el: '#app',
+    data: {
+        message: 'Hello'
+    },
+    computed:{
+        reverseMessage: function(){
+            return this.message.split('').reverse().join('')
+        }
+    }
+})
+```
+
+5.2 也可以用表達式(方法)來達到一樣的效果
+
+html
+```
+<div id="app1">
+    <p>原本的句子 {{ message }}</p>
+    <p>表達式句子 {{ reverseMessage() }}</p>
+</div>
+```
+
+js
+```
+var app1 = new Vue({
+    el: '#app1',
+    data: {
+        message: 'Hello'
+    },
+    methods: {
+        reverseMessage: function(){
+            return this.message.split('').reverse().join('')
+        }
+    }
+})
+```
+
+5.3 計算和方法最大的差異在於: 計算式儲存於緩存, 所以不會再更動, 除非有響應式依賴發生變化
+
+5.4 實際應用
+
+html
+```
+<div id="app2">{{ fullName }}</div>
+```
+
+js
+```
+var app2 = new Vue({
+    el: '#app2',
+    data: {
+        firstName: 'Foo',
+        lastName: 'Bar'
+    },
+    computed: {
+        fullName: function () {
+            return this.firstName + ' ' + this.lastName
+        }
+    }
+})
+```
+
+5.5 computed中每個計算方法都是預設為getter, 但是其實有另一個setter需要自行建立, setter可以設定該計算方法的設定
+
+js
+```
+var app3 = new Vue({
+    el: '#app3',
+    data: {
+        firstName: 'Foo',
+        lastName: 'Bar'
+    },
+    computed: {
+        fullName: {
+            
+            get: function(){
+                return this.firstName + ' ' + this.lastName
+            },
+
+            set: function (newValue) {
+                var names = newValue.split('')
+                this.firstName = names[0]
+                this.lastName = names[names.length - 1]
+            }
+        }
+    }
+})
+```
+
+5.6 watch可以觀察資料的變化
+
+html
+```
+<div id="app4">
+    <p>
+        ask a yes/no question:
+        <input v-model="question">
+    </p>
+    <p>{{ answer }}</p>
+</div>
+```
+
+js
+```
+var app4 = new Vue({
+    el: '#app4',
+    data: {
+        question: '',
+        answer: 'Ask some question'
+    },
+    watch: {
+        question: function (newQ, oldQ) {
+            this.answer = 'Waiting...'
+        }
+    }
+})
+```
+
+6. class&style
+
+6.1 利用布林值控制是否添加class
+
+html
+```
+<div id="app" v-bind:class="{ active: isActive }">this GREEN if isActive is true</div>
+```
+
+js
+```
+var app = new Vue({
+    el: '#app',
+    data: {
+        isActive: true
+    }
+})
+```
+
+6.2 可以對class傳送一個陣列來增加多的類別
+
+html
+```
+<div id="app1" v-bind:class="[active1, active2]">There are two class</div>
+```
+
+js
+```
+var app1 = new Vue({
+    el: '#app1',
+    data: {
+        active1: 'done',
+        active2: 'box'
+    }
+})
+```
+
+6.3 可以設定style樣式再帶入
+
+html
+```
+<div id="app2" :style="styleObject">TEXT</div>
+```
+
+js
+```
+var app2 = new Vue({
+    el: '#app2',
+    data: {
+        styleObject: {
+            color: 'red',
+            fontSize: '13px'
+        }
+    }
+})
+```
+
+
+7. 條件式
+
+7.1 v-else可以顯示如果不通過要顯示的
+
+html
+```
+<div id="app">
+    <h1 v-if="awsome">True it</h1>
+    <h1 v-else>False it</h1>
+</div>
+```
+
+js
+```
+var app = new Vue({
+    el: '#app',
+    data: {
+        awsome: true
+    }
+})
+```
+
+7.2 也可以利用v-else-if來做更細部的篩選
+
+html
+```
+<div id="app1">
+    <div v-if="type === 'A'">A</div>
+    <div v-else-if="type === 'B'">B</div>
+    <div v-else-if="type === 'C'">C</div>
+    <div v-else>NOT A,B,C</div>
+</div>
+```
+
+js
+```
+var app1 = new Vue({
+    el: '#app1',
+    data: {
+        type: 'D'
+    }
+})
+```
+
+7.3 可以用key來獨立重複元素, 避免復用
+
+7.4 與v-if相似的是v-show, 兩者差別在v-if只有在true才會運作(善用於不太會一直更改的地方), v-show則是會直接運作(善用於頻繁更改的地方)

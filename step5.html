@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>原本的句子 {{ message }}</p>
+        <p>計算後句子 {{ reverseMessage }}</p>
+    </div>
+
+    <div id="app1">
+        <p>原本的句子 {{ message }}</p>
+        <p>表達式句子 {{ reverseMessage() }}</p>
+    </div>
+
+    <div id="app2">{{ fullName }}</div>
+
+    <div id="app3">{{ fullName }}</div>
+
+    <div id="app4">
+        <p>
+            ask a yes/no question:
+            <input v-model="question">
+        </p>
+        <p>{{ answer }}</p>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="./step5.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .done{
+            color: green;
+        }
+
+        .box{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" v-bind:class="{ done: isActive }">this GREEN if isActive is true</div>
+    
+    <div id="app1" v-bind:class="[active1, active2]">There are two class</div>
+
+    <div id="app2" :style="styleObject">TEXT</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="./step6.js"></script>
+</body>
+</html>
