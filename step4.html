@@ -6,7 +6,26 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="app">{{ a }}</div>
+    <div id="app">
+        <span>{{ a }}</span><br>
+        <span v-once>{{ a }}</span>
+    </div>
+
+    <div id="app1">
+        <p>Using mustaches: {{ rawHtml }}</p>
+        <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+    </div>
+
+    <div id="app2">
+        <span>{{ a + 2 }}</span>
+        <span>{{ ok ? "YES" : "NO" }}</span>
+        <span>{{ message.split('').reverse().join('') }}</span>
+        <div v-bind:id="'list' + id">id = list1</div>
+    </div>
+
+    <div id="app3">
+        <p>如果v-if裡面的值是true就會看到<span v-if="seen">這句話</span></p>
+    </div>
     
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="./step4.js"></script>

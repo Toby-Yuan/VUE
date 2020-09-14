@@ -238,6 +238,7 @@ var app7 = new Vue({
 })
 ```
 
+
 3. 生命週期(鉤子)
 
 3.1 vue可以在每個步驟中進行動作, 例如: 監聽, 編譯
@@ -262,3 +263,94 @@ var app = new Vue({
 3.4 其他的例如: mounted(元素掛載, 有el), updated(DOM更新完成), destroyed(銷毀)
 
 3.5 也可以在前面加上before, 字首大寫, 不用加ed
+
+
+4. Vue語法
+4.1 v-once: 有這個標籤屬性的不會被更改
+
+html
+```
+<div id="app">
+    <span>{{ a }}</span><br>
+    <span v-once>{{ a }}</span>
+</div>
+```
+
+js
+```
+var app = new Vue({
+    el: '#app',
+    data: {
+        a: 'hello'
+    },
+    created: function(){
+        console.log('a is:' + this.a)
+    }
+})
+
+app.a = 'change';
+```
+
+4.2 如果要透過Vue加入HTML的話, 必須要再需加入的地方加入標籤屬性 v-html
+
+html
+```
+<div id="app1">
+    <p>Using mustaches: {{ rawHtml }}</p>
+    <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+</div>
+```
+
+js
+```
+var app1 = new Vue({
+    el: '#app1',
+    data: {
+        rawHtml: '<span style="color: red">This should be red</span>'
+    }
+})
+```
+
+4.3 html 中的 VUE 可以加入JS的單向運算
+
+html
+```
+<div id="app2">
+    <span>{{ a + 2 }}</span>
+    <span>{{ ok ? "YES" : "NO" }}</span>
+    <span>{{ message.split('').reverse().join('') }}</span>
+    <div v-bind:id="'list' + id">id = list1</div>
+</div>
+```
+
+js
+```
+var app2 = new Vue({
+    el: '#app2',
+    data: {
+        a: 3,
+        ok: true,
+        message: 'It will be reverse',
+        id: 1
+    }
+})
+```
+
+4.4 由VUE來控制html的顯示
+
+html
+```
+<div id="app3">
+    <p>如果v-if裡面的值是true就會看到<span v-if="seen">這句話</span></p>
+</div>
+```
+
+js
+```
+var app3 = new Vue({
+    el: '#app3',
+    data: {
+        seen: true
+    }
+})
+```
