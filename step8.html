@@ -11,6 +11,18 @@
             {{ item.message }}
         </li>
     </ul>
+
+    <ul id="app1">
+        <li v-for="(item, index) in items">
+            {{ parentMessage }} - {{ index }} - {{ item.message }}
+        </li>
+    </ul>
+
+    <ul id="app2">
+        <li v-for="(value, name, key) in object">
+            {{ key }} . {{ name }} : {{ value }}
+        </li>
+    </ul>
     
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="./step8.js"></script>

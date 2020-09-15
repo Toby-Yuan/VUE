@@ -594,3 +594,82 @@ var app1 = new Vue({
 7.3 可以用key來獨立重複元素, 避免復用
 
 7.4 與v-if相似的是v-show, 兩者差別在v-if只有在true才會運作(善用於不太會一直更改的地方), v-show則是會直接運作(善用於頻繁更改的地方)
+
+
+8. 列表
+
+8.1 v-for 可以做迴圈顯示
+
+html
+```
+<ul id="app">
+    <li v-for="item in items" :key="item.message">
+        {{ item.message }}
+    </li>
+</ul>
+```
+
+js
+```
+var app = new Vue({
+    el: '#app',
+    data: {
+        items: [
+            {message: 'test1'},
+            {message: 'test2'}
+        ]
+    }
+})
+```
+
+8.2 v-for也有父子層關係
+
+html
+```
+<ul id="app1">
+    <li v-for="(item, index) in items">
+        {{ parentMessage }} - {{ index }} - {{ item.message }}
+    </li>
+</ul>
+```
+
+js
+```
+var app1 = new Vue({
+    el: '#app1',
+    data: {
+        parentMessage: 'parent',
+        items: [
+            {message: 'test1'},
+            {message: 'test2'}
+        ]
+    }
+})
+```
+
+8.3 in 可以替換成 of
+
+8.4 也可以對類別做迴圈
+
+html
+```
+<ul id="app2">
+    <li v-for="(value, name) in object">
+        {{ name }} : {{ value }}
+    </li>
+</ul>
+```
+
+js
+```
+var app2 = new Vue({
+    el: '#app2',
+    data: {
+        object: {
+            title: 'How to do lists in Vue',
+            author: 'Jane Done',
+            public: '2020-08-10'
+        }
+    }
+})
+```
