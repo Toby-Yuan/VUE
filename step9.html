@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="count+=1">Add 1</button>
+        <p>The button click {{ count }} times</p>
+    </div>
+
+    <div id="app1">
+        <button v-on:click="greet">Greet</button>
+    </div>
+
+    <div id="app2">
+        <button v-on:click="say('HI')">Say HI</button>
+    </div>
+
+    <div id="app3">
+        <button v-on:click="warm('Error', $event)">Error</button>
+    </div>
+
+    <div id="app4">
+        <button v-on:click.once="alert">Just Once</button>
+    </div>
+
+    <div id="app5">
+        <div @click="outer">
+            <div @click="middle">
+                <button @click.stop="inner">click me</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="app6">
+        <a href="https://tw.yahoo.com/" @click.prevent="changeMsg">Click me</a>
+        <p>{{ msg }}</p>
+    </div>
+
+    <div id="app7">
+        <div @click.capture="outer">
+            <div @click.capture="middle">
+                <button @click.capture="inner">click me</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="./step9.js"></script>
+</body>
+</html>

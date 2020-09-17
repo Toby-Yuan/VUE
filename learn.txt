@@ -742,3 +742,155 @@ var app5 = new Vue({
     }
 })
 ```
+
+
+9. DOM事件, v-on
+9.1 更改data
+html
+```
+<div id="app">
+    <button v-on:click="count+=1">Add 1</button>
+    <p>The button click {{ count }} times</p>
+</div>
+```
+
+js
+```
+var app = new Vue({
+    el: '#app',
+    data: {
+        count: 0
+    }
+})
+```
+
+9.2 呼叫函式
+html
+```
+<div id="app1">
+    <button v-on:click="greet">Greet</button>
+</div>
+```
+
+js
+```
+var app1 = new Vue({
+    el: '#app1',
+    data: {
+        name: 'Tommy'
+    },
+    methods: {
+        greet: function (){
+            alert('Hello ' + this.name)
+        }
+    }
+})
+```
+
+9.3 事件也有修飾
+
+9.3.1 .once 事件只會處理一次
+html
+```
+div id="app4">
+    <button v-on:click.once="alert">Just Once</button>
+</div>
+```
+
+js
+```
+var app4 = new Vue({
+    el: '#app4',
+    methods: {
+        alert: function(){
+            alert('Just this time')
+        }
+    }
+})
+```
+
+9.3.2 .stop 防止事件冒泡
+html
+```
+<div id="app5">
+    <div @click="outer">
+        <div @click="middle">
+            <button @click.stop="inner">click me</button>
+        </div>
+    </div>
+</div>
+```
+
+js
+```
+var app5 = new Vue({
+    el: '#app5',
+    methods: {
+        outer: function(){
+            alert('這是外面的div');
+        },
+        middle: function(){
+            alert('這是中間的div');
+        },
+        inner: function(){
+            alert('這是裡面的button');
+        }
+    }
+})
+```
+
+9.3.3 .prevent 不會發生預設事件
+html
+```
+<div id="app6">
+    <a href="https://tw.yahoo.com/" @click.prevent="changeMsg">Click me</a>
+    <p>{{ msg }}</p>
+</div>
+```
+
+js
+```
+var app6 = new Vue({
+    el: '#app6',
+    data: {
+        msg: 'Hi'
+    },
+    methods: {
+        changeMsg: function(){
+            this.msg = 'Cant go to yahoo';
+        }
+    }
+})
+```
+
+9.3.4 .capture 冒泡捕捉, 類似反向冒泡, 許要每一層都加上
+html
+```
+<div id="app7">
+    <div @click.capture="outer">
+        <div @click.capture="middle">
+            <button @click.capture="inner">click me</button>
+        </div>
+    </div>
+</div>
+```
+
+js
+```
+var app7 = new Vue({
+    el: '#app7',
+    methods: {
+        outer: function(){
+            alert('這是外面的div');
+        },
+        middle: function(){
+            alert('這是中間的div');
+        },
+        inner: function(){
+            alert('這是裡面的button');
+        }
+    }
+})
+```
+
+9.3.5 .self 只會發生在自己的範圍, 不包含子元素
