@@ -29,3 +29,31 @@ var app2 = new Vue({
         }
     }
 })
+
+var app3 = new Vue({
+    el: '#app3',
+    data: {
+        numbers: [1, 2, 3, 4, 5, 6]
+    },
+    computed: {
+        evenNumbers: function(){
+            return this.numbers.filter(function (number){
+                return number % 2 == 0;
+            })
+        }
+    }
+})
+
+var app4 = new Vue({
+    el: '#app4',
+    data: {
+        sets: [1, 2, 3, 4, 5, 6, 7, 8]
+    }
+})
+
+var app5 = new Vue({
+    el: '#app5',
+    data: {
+        sets: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    }
+})

@@ -23,6 +23,24 @@
             {{ key }} . {{ name }} : {{ value }}
         </li>
     </ul>
+
+    <ul id="app3">
+        <li v-for="n in evenNumbers">
+            {{ n }}
+        </li>
+    </ul>
+
+    <ul id="app4">
+        <li v-for="set in sets" v-if="set % 2 == 0">
+            {{ set }}  
+        </li>
+    </ul>
+
+    <ul id="app5">
+        <template v-for="set in sets">
+            <li>{{ set }}</li>
+        </template>
+    </ul>
     
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="./step8.js"></script>

@@ -673,3 +673,72 @@ var app2 = new Vue({
     }
 })
 ```
+
+8.5 嘗試在工作管理區域打入 app.items.push({message: 'test3'})
+
+8.6 函式篩選
+html
+```
+<ul id="app3">
+    <li v-for="n in evenNumbers">
+        {{ n }}
+    </li>
+</ul>
+```
+
+js
+```
+var app3 = new Vue({
+    el: '#app3',
+    data: {
+        numbers: [1, 2, 3, 4, 5, 6]
+    },
+    computed: {
+        evenNumbers: function(){
+            return this.numbers.filter(function (number){
+                return number % 2 == 0;
+            })
+        }
+    }
+})
+```
+
+8.7 此方法與上面相同
+html
+```
+<ul id="app4">
+    <li v-for="set in sets" v-if="set % 2 == 0">
+        {{ set }}  
+    </li>
+</ul>
+```
+
+js
+```
+var app4 = new Vue({
+    el: '#app4',
+    data: {
+        sets: [1, 2, 3, 4, 5, 6, 7, 8]
+    }
+})
+```
+
+8.8 可以在html中使用template等待js啟用
+html
+```
+<ul id="app5">
+    <template v-for="set in sets">
+        <li>{{ set }}</li>
+    </template>
+</ul>
+```
+
+js
+```
+var app5 = new Vue({
+    el: '#app5',
+    data: {
+        sets: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    }
+})
+```
