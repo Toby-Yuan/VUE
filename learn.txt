@@ -894,3 +894,91 @@ var app7 = new Vue({
 ```
 
 9.3.5 .self 只會發生在自己的範圍, 不包含子元素
+
+
+10. 表單
+10.1 v-model 可以用表單來控制資料
+html
+```
+<div id="app">
+    <input type="text" v-model="msg">
+    <p>Message is: {{ msg }}</p>
+</div>
+```
+
+js
+```
+var app = new Vue({
+    el: '#app',
+    data: {
+        msg: 'Hello'
+    }
+})
+```
+
+10.2 可以利用checkbox控制布林值
+html
+```
+<div id="app1">
+    <input type="checkbox" id="checkbox" v-model="checked">
+    <label for="checkbox">{{ checked }}</label>
+</div>
+```
+
+js
+```
+var app1 = new Vue({
+    el: '#app1',
+    data: {
+        checked: false
+    }
+})
+```
+
+10.3 利用多個checkbox控制資料
+html
+```
+<div id="app2">
+    <input type="checkbox" id="check1" value="apple" v-model="buyList">
+    <label for="check1">apple</label>
+    <input type="checkbox" id="check2" value="milk" v-model="buyList">
+    <label for="check2">milk</label>
+    <input type="checkbox" id="check3" value="egg" v-model="buyList">
+    <label for="check3">egg</label>
+    <ul>
+        <li v-for="item in buyList">{{ item }}</li>
+    </ul>
+</div>
+```
+
+js
+```
+var app2 = new Vue({
+    el: '#app2',
+    data: {
+        buyList: []
+    }
+})
+```
+
+10.4 利用單選選項控制資料
+html
+```
+<div id="app3">
+    <input type="radio" id="A" value="A" v-model="checkOne">
+    <label for="A">A</label>
+    <input type="radio" id="B" value="B" v-model="checkOne">
+    <label for="B">B</label>
+    <p>Checked: {{ checkOne }}</p>
+</div>
+```
+
+js
+```
+var app3 = new Vue({
+    el: '#app3',
+    data: {
+        checkOne: ''
+    }
+})
+```

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="msg">
+        <p>Message is: {{ msg }}</p>
+    </div>
+
+    <div id="app1">
+        <input type="checkbox" id="checkbox" v-model="checked">
+        <label for="checkbox">{{ checked }}</label>
+    </div>
+
+    <div id="app2">
+        <input type="checkbox" id="check1" value="apple" v-model="buyList">
+        <label for="check1">apple</label>
+        <input type="checkbox" id="check2" value="milk" v-model="buyList">
+        <label for="check2">milk</label>
+        <input type="checkbox" id="check3" value="egg" v-model="buyList">
+        <label for="check3">egg</label>
+        <ul>
+            <li v-for="item in buyList">{{ item }}</li>
+        </ul>
+    </div>
+
+    <div id="app3">
+        <input type="radio" id="A" value="A" v-model="checkOne">
+        <label for="A">A</label>
+        <input type="radio" id="B" value="B" v-model="checkOne">
+        <label for="B">B</label>
+        <p>Checked: {{ checkOne }}</p>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="./step10.js"></script>
+</body>
+</html>
