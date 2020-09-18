@@ -25,3 +25,31 @@ var app3 = new Vue({
         checkOne: ''
     }
 })
+
+var app4 = new Vue({
+    el: '#app4',
+    data: {
+        selected: ''
+    }
+})
+
+var app5 = new Vue({
+    el: '#app5',
+    data: {
+        check: ''
+    }
+})
+
+var app6 = new Vue({
+    el: '#app6',
+    data: {
+        msg: 'Hello'
+    }
+})
+
+var app7 = new Vue({
+    el: '#app7',
+    data: {
+        num: 0
+    }
+})

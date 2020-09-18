@@ -35,6 +35,30 @@
         <label for="B">B</label>
         <p>Checked: {{ checkOne }}</p>
     </div>
+
+    <div id="app4">
+        <select name="" id="" v-model="selected">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+        </select>
+        <span>SELECT: {{ selected }}</span>
+    </div>
+
+    <div id="app5">
+        <input type="checkbox" v-model="check" true-value="YES" false-value="NO">
+        <span>{{ check }}</span>
+    </div>
+
+    <div id="app6">
+        <input type="text" v-model.lazy="msg">
+        <p>{{ msg }}</p>
+    </div>
+
+    <div id="app7">
+        <input type="text" v-model.number="num">
+        <p>{{ num }}</p>
+    </div>
     
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="./step10.js"></script>

@@ -982,3 +982,64 @@ var app3 = new Vue({
     }
 })
 ```
+
+10.5 由下拉式選單控制
+html
+```
+<div id="app4">
+    <select name="" id="" v-model="selected">
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+    </select>
+    <span>SELECT: {{ selected }}</span>
+</div>
+```
+
+js
+```
+var app4 = new Vue({
+    el: '#app4',
+    data: {
+        selected: ''
+    }
+})
+```
+
+10.6 可以在html中設定預設的布林值轉化
+html
+```
+<div id="app5">
+    <input type="checkbox" v-model="check" true-value="YES" false-value="NO">
+    <span>{{ check }}</span>
+</div>
+```
+
+js
+```
+var app5 = new Vue({
+    el: '#app5',
+    data: {
+        check: ''
+    }
+})
+```
+
+10.7 表單的事件綁定也有修飾符, .lazy: 需要點擊非作用區域才會發生
+html
+```
+<div id="app6">
+    <input type="text" v-model.lazy="msg">
+    <p>{{ msg }}</p>
+</div>
+```
+
+js
+```
+var app6 = new Vue({
+    el: '#app6',
+    data: {
+        msg: 'Hello'
+    }
+})
+```
