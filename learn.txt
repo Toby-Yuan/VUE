@@ -1043,3 +1043,22 @@ var app6 = new Vue({
     }
 })
 ```
+
+10.8 .number: 把數字變成字串格式
+html
+```
+<div id="app7">
+    <input type="text" v-model.number="num">
+    <p>{{ num }}</p>
+</div>
+```
+
+js
+```
+var app7 = new Vue({
+    el: '#app7',
+    data: {
+        num: 0
+    }
+})
+```
