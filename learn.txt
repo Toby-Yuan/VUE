@@ -1081,3 +1081,79 @@ var app8 = new Vue({
     }
 })
 ```
+
+
+11. 組建
+
+11.1 初始建立
+
+html
+```
+<div id="app">
+    <button-counter></button-counter>
+</div>
+```
+
+js
+```
+Vue.component('button-counter', {
+    data: function(){
+        return {
+            count: 0
+        }
+    },
+    template: '<button v-on:click="count++">{{ count }} clicked</button>'
+})
+
+var app = new Vue({
+    el: '#app'
+})
+```
+
+11.2 組建可以重複使用, 但是都是獨立的, 資料不會互相影響
+
+11.3 組建中的data必須是函式, 除非要組建之間互相影響
+
+11.4 可以用props來設定屬性
+html
+```
+<div id="app1">
+    <blog-post title="Hello"></blog-post>
+    <blog-post title="Vue"></blog-post>
+    <blog-post title="Hi"></blog-post>
+</div>
+```
+
+js
+```
+Vue.component('blog-post', {
+    props: ['title'],
+    template: '<h3>{{ title }}</h3>'
+})
+
+var app1 = new Vue({
+    el: '#app1'
+})
+```
+
+11.5 以下效果與上面一樣
+html
+```
+<div id="app2">
+    <blog-post v-for="post in posts" :key="post.id" :title="post.title"></blog-post>
+</div>
+```
+
+js
+```
+var app2 = new Vue({
+    el: '#app2',
+    data: {
+        posts: [
+            {id: 1, title: 'Hello'},
+            {id: 2, title: 'Vue'},
+            {id: 3, title: 'Hi'}
+        ]
+    }
+})
+```

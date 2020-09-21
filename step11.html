@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button-counter></button-counter>
+    </div>
+
+    <div id="app1">
+        <blog-post title="Hello"></blog-post>
+        <blog-post title="Vue"></blog-post>
+        <blog-post title="Hi"></blog-post>
+    </div>
+
+    <div id="app2">
+        <blog-post v-for="post in posts" :key="post.id" :title="post.title"></blog-post>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="./step11.js"></script>
+</body>
+</html>
