@@ -53,3 +53,10 @@ var app7 = new Vue({
         num: 0
     }
 })
+
+var app8 = new Vue({
+    el: '#app8',
+    data: {
+        num: ''
+    }
+})

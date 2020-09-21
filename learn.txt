@@ -1062,3 +1062,22 @@ var app7 = new Vue({
     }
 })
 ```
+
+10.9 .trim: 去除首尾的空白字元
+html
+```
+<div id="app8">
+    <input type="text" v-model.trim="num">
+    <p>{{ num }}</p>
+</div>
+```
+
+js
+```
+var app8 = new Vue({
+    el: '#app8',
+    data: {
+        num: ''
+    }
+})
+```
