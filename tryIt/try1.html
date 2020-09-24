@@ -4,9 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>vue try1</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+
+    <div class="imageList" id="js_imageList">
+        <h1>燈箱</h1>
+        <image-show v-for="image in images" :url="image" @click="showBox"></image-show>
+    </div>
+
+    <!-- 燈箱 -->
+    <div class="model" id="lightBox">
+        <button class="close" onclick="closeIt()">X</button>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="./try1.js"></script>
