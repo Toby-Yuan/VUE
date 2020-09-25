@@ -10,12 +10,12 @@
 
     <div class="imageList" id="js_imageList">
         <h1>燈箱</h1>
-        <image-show v-for="image in images" :url="image" @click="showBox"></image-show>
+        <image-show v-for="image in images" :src="image" @click.native="showBox"></image-show>
     </div>
 
     <!-- 燈箱 -->
     <div class="model" id="lightBox">
-        <button class="close" onclick="closeIt()">X</button>
+        <button class="close">X</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>

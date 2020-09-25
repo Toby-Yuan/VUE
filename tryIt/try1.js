@@ -1,7 +1,6 @@
 window.onload = function(){
     Vue.component('image-show', {
-        props: ['url'],
-        template: '<img :src="url">'
+        template: '<img>'
     })
     
     var imageList = new Vue({
@@ -10,20 +9,23 @@ window.onload = function(){
             images: ['./img/image1.jpg', './img/image2.jpg', './img/image3.jpg']
         },
         methods: {
-            showBox: function(){
-                console.log('click');
+            showBox: function(e) {
+                document.getElementById('lightBox').style.visibility = 'visible';
+                document.getElementById('lightBox').style.opacity = 1;
+                var image = "<img src=" + e.target.src + ">";
+                document.getElementById('lightBox').innerHTML += image;
             }
         }
     })
-}
 
-
-// 燈箱顯示
-function showLightBox(get){
-    document.getElementById('lightBox').style.visibility = 'visible';
-    document.getElementById('lightBox').style.opacity = 1;
-    var image = "<img src=" + get.src + ">";
-    document.getElementById('lightBox').innerHTML += image;
+    var closeBox = new Vue({
+        el: '#lightBox',
+        methods: {
+            test: function() {
+                alert('test');
+            }
+        }
+    })
 }
 
 // 關閉燈箱
