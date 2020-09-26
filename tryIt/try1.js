@@ -17,15 +17,6 @@ window.onload = function(){
             }
         }
     })
-
-    var closeBox = new Vue({
-        el: '#lightBox',
-        methods: {
-            test: function() {
-                alert('test');
-            }
-        }
-    })
 }
 
 // 關閉燈箱
