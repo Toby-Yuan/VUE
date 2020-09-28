@@ -7,14 +7,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="slide" id="slideArea">
+        <h1>輪播圖</h1>
+        <slide-image v-for="image in images" :url="image"></slide-image>
+        <a class="btn sub" id="subPage">&#10094;</a>
+        <a class="btn add" id="addPage">&#10095;</a>
+        <a class="auto" id="autoPlay" onclick="autoPlay(this)">&#9658;</a>
+    </div>
 
-    <div class="imageList" id="js_imageList">
+    <div class="image-list" id="js_imageList">
         <h1>燈箱</h1>
         <image-show v-for="image in images" :src="image" @click.native="showBox"></image-show>
     </div>
 
     <!-- 燈箱 -->
-    <div class="model" id="lightBox">
+    <div class="model" id="lightBox" @click="close">
         <button class="close">X</button>
     </div>
 

@@ -1,282 +1,282 @@
 @charset "UTF-8";
 * {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  font-family: 微軟正黑體;
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 微軟正黑體;
 }
 
 .slide {
-  position: relative;
-  margin: 0 auto;
-  width: 1200px;
-  height: 800px;
-  overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+    width: 1200px;
+    height: 800px;
+    overflow: hidden;
 }
 
-.slide .oneSlide {
-  position: absolute;
+.slide .one-slide {
+    position: absolute;
 }
 
-.slide .oneSlide img {
-  width: 100%;
+.slide .one-slide img {
+    width: 100%;
 }
 
 .slide .btn {
-  position: absolute;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0);
-  top: 50%;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  color: white;
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+    position: absolute;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0);
+    top: 50%;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    color: #FFF;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .slide .btn:hover {
-  background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .slide .sub {
-  border-radius: 0 10px 10px 0;
+    border-radius: 0 10px 10px 0;
 }
 
 .slide .add {
-  right: 0;
-  border-radius: 10px 0 0 10px;
+    right: 0;
+    border-radius: 10px 0 0 10px;
 }
 
 .slide .auto {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  color: white;
-  font-size: 24px;
-  text-shadow: 0 0 8px black;
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  letter-spacing: 0.5em;
-  font-weight: 900;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #FFF;
+    font-size: 24px;
+    text-shadow: 0 0 8px #000;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    letter-spacing: 0.5em;
+    font-weight: 900;
 }
 
 .select {
-  text-align: center;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .select .dot {
-  display: inline-block;
-  margin: 10px;
-  width: 20px;
-  height: 20px;
-  background: #777;
-  border-radius: 50%;
-  cursor: pointer;
+    display: inline-block;
+    margin: 10px;
+    width: 20px;
+    height: 20px;
+    background: #777;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 .select .active {
-  background: #FA0;
+    background: #FA0;
 }
 
-.imageList {
-  width: 1200px;
-  margin: 0 auto;
+.image-list {
+    width: 1200px;
+    margin: 0 auto;
 }
 
-.imageList img {
-  margin: 7px;
-  width: 386px;
-  cursor: pointer;
+.image-list img {
+    margin: 7px;
+    width: 386px;
+    cursor: pointer;
 }
 
 .model {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  visibility: hidden;
-  opacity: 0;
-  -webkit-transition: opacity 0.5s linear, visibility 0.5s linear;
-  transition: opacity 0.5s linear, visibility 0.5s linear;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity 0.5s linear, visibility 0.5s linear;
+    transition: opacity 0.5s linear, visibility 0.5s linear;
 }
 
 .model .close {
-  position: fixed;
-  top: 50px;
-  right: 50px;
-  width: 50px;
-  height: 50px;
-  border-radius: 25px;
-  border: none;
-  cursor: pointer;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
 }
 
 .model .close:focus {
-  outline: 0;
+    outline: 0;
 }
 
 .model img {
-  display: block;
-  margin: 40px auto 0;
-  width: 1350px;
-  border: 3px solid white;
+    display: block;
+    margin: 40px auto 0;
+    width: 1350px;
+    border: 3px solid #FFF;
 }
 
-@-webkit-keyframes fadeInAdd {
-  from {
-    left: 100%;
-    width: 100%;
-    height: 100%;
-  }
-  to {
-    left: 0%;
-    width: 100%;
-    height: 100%;
-  }
+@-webkit-keyframes fade-in-add {
+    from {
+        left: 100%;
+        width: 100%;
+        height: 100%;
+    }
+    to {
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
 }
 
-@keyframes fadeInAdd {
-  from {
-    left: 100%;
-    width: 100%;
-    height: 100%;
-  }
-  to {
-    left: 0%;
-    width: 100%;
-    height: 100%;
-  }
+@keyframes fade-in-add {
+    from {
+        left: 100%;
+        width: 100%;
+        height: 100%;
+    }
+    to {
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
 }
 
-@-webkit-keyframes fadeOutAdd {
-  from {
-    left: 0%;
-    width: 100%;
-    height: 100%;
-  }
-  to {
-    left: -100%;
-    width: 100%;
-    height: 100%;
-  }
+@-webkit-keyframes fade-out-add {
+    from {
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    to {
+        left: -100%;
+        width: 100%;
+        height: 100%;
+    }
 }
 
-@keyframes fadeOutAdd {
-  from {
-    left: 0%;
-    width: 100%;
-    height: 100%;
-  }
-  to {
-    left: -100%;
-    width: 100%;
-    height: 100%;
-  }
+@keyframes fade-out-add {
+    from {
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    to {
+        left: -100%;
+        width: 100%;
+        height: 100%;
+    }
 }
 
-@-webkit-keyframes fadeInSub {
-  from {
-    left: -100%;
-    width: 100%;
-    height: 100%;
-  }
-  to {
-    left: 0%;
-    width: 100%;
-    height: 100%;
-  }
+@-webkit-keyframes fade-in-sub {
+    from {
+        left: -100%;
+        width: 100%;
+        height: 100%;
+    }
+    to {
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
 }
 
-@keyframes fadeInSub {
-  from {
-    left: -100%;
-    width: 100%;
-    height: 100%;
-  }
-  to {
-    left: 0%;
-    width: 100%;
-    height: 100%;
-  }
+@keyframes fade-in-sub {
+    from {
+        left: -100%;
+        width: 100%;
+        height: 100%;
+    }
+    to {
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
 }
 
-@-webkit-keyframes fadeOutSub {
-  from {
-    left: 0%;
-    width: 100%;
-    height: 100%;
-  }
-  to {
-    left: 100%;
-    width: 100%;
-    height: 100%;
-  }
+@-webkit-keyframes fade-out-sub {
+    from {
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    to {
+        left: 100%;
+        width: 100%;
+        height: 100%;
+    }
 }
 
-@keyframes fadeOutSub {
-  from {
-    left: 0%;
-    width: 100%;
-    height: 100%;
-  }
-  to {
-    left: 100%;
-    width: 100%;
-    height: 100%;
-  }
+@keyframes fade-out-sub {
+    from {
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    to {
+        left: 100%;
+        width: 100%;
+        height: 100%;
+    }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1340px) {
-  .slide {
-    width: 750px;
-    height: 500px;
-  }
-  .select .dot {
-    width: 16px;
-    height: 16px;
-  }
-  .imageList {
-    width: 750px;
-  }
-  .imageList img {
-    width: 236px;
-  }
-  .model img {
-    margin-top: 150px;
-    width: 850px;
-  }
+    .slide {
+        width: 750px;
+        height: 500px;
+    }
+    .select .dot {
+        width: 16px;
+        height: 16px;
+    }
+    .image-list {
+        width: 750px;
+    }
+    .image-list img {
+        width: 236px;
+    }
+    .model img {
+        margin-top: 150px;
+        width: 850px;
+    }
 }
 
 @media screen and (max-width: 849px) {
-  .slide {
-    width: 80%;
-    height: 230px;
-  }
-  .slide .btn {
-    padding: 5px;
-  }
-  .imageList {
-    width: 80%;
-  }
-  .imageList img {
-    margin: 0;
-    width: 100%;
-  }
-  .model img {
-    margin-top: 50%;
-    width: 90%;
-  }
+    .slide {
+        width: 80%;
+        height: 230px;
+    }
+    .slide .btn {
+        padding: 5px;
+    }
+    .image-list {
+        width: 80%;
+    }
+    .image-list img {
+        margin: 0;
+        width: 100%;
+    }
+    .model img {
+        margin-top: 50%;
+        width: 90%;
+    }
 }
 /*# sourceMappingURL=style.css.map */
