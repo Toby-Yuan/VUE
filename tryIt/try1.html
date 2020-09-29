@@ -7,12 +7,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="slide" id="slideArea">
+    <div class="slide" id="slideArea" @mousedown="mouseEnter" @mouseup="mouseLeave" @touchstart="touchEnter" @touchend="touchLeave">
         <h1>輪播圖</h1>
         <slide-image v-for="image in images" :url="image"></slide-image>
-        <a class="btn sub" id="subPage">&#10094;</a>
-        <a class="btn add" id="addPage">&#10095;</a>
-        <a class="auto" id="autoPlay" onclick="autoPlay(this)">&#9658;</a>
+        <a class="btn sub" id="subPage" @click="subOne">&#10094;</a>
+        <a class="btn add" id="addPage" @click="addOne">&#10095;</a>
+        <a class="auto" id="autoPlay" v-html="autoPlay" @click="autoSlide"></a>
+    </div>
+
+    <div class="select" id="dotArea">
+        <dot-list v-for="n in 3" class="dot" @click.native="showPage(n)"></dot-list>
     </div>
 
     <div class="image-list" id="js_imageList">
